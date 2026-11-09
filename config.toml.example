@@ -1,0 +1,29 @@
+# Codex settings that suit the harness. install.sh never edits your config.toml:
+# copy the lines you want into ~/.codex/config.toml. Top-level keys go above
+# the first [table] in that file, or TOML files them under that table.
+# Every key: https://developers.openai.com/codex/config-reference
+
+# Work inside the session's folder without asking. Codex asks before anything
+# outside it, and before the commands rules/harness.rules marks "prompt".
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+# Room for project AGENTS.md files on top of the global one. Default 32 KiB.
+project_doc_max_bytes = 65536
+
+[sandbox_workspace_write]
+# gh, git push and package installs need the network.
+network_access = true
+# To let a session work in the task worktrees until-ready makes, list their
+# parent folders here (absolute paths), for example:
+# writable_roots = ["/absolute/path/to/Projects/myapp-tasks"]
+
+[features]
+# Subagents, for delegated builds and reviews. On by default in current Codex.
+multi_agent = true
+# Lifecycle hooks, for the until-ready Stop hook. On by default in current Codex.
+hooks = true
+
+[agents]
+# How many subagents may run at once.
+max_threads = 4

@@ -1,0 +1,6 @@
+# Your files. Updates (git pull) never touch them.
+/projects.json
+/wiki/
+/reports/
+.claude/loop/
+.claude/security-audit/

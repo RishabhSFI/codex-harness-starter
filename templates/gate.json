@@ -1,0 +1,11 @@
+{
+  "steps": [
+    { "name": "lint", "run": "npm run lint" },
+    { "name": "tests", "run": "npm test" },
+    { "name": "build", "run": "npm run build" },
+    { "name": "security audit", "run": "node ~/Projects/codex-harness/gate/codex-audit.mjs" }
+  ],
+  "local": [".env.local"],
+  "rules": ["Don't edit the tests to get through the gate."],
+  "tries": 5
+}
