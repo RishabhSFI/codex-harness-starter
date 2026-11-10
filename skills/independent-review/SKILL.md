@@ -29,12 +29,23 @@ Count the changed lines: `git diff --stat "$(git merge-base origin/HEAD HEAD)"`.
 
   Codex asks first, since this starts another agent.
 
+## Scope review, every time
+
+Code or not, the reviewer also runs `$scope-review`: give it the owner's
+exact words, the deliverable itself (the diff, doc, page or email) and the
+"Asked vs delivered" section, and use that skill's reviewer prompt. Docs,
+plans and emails with no diff get this review on their own. It fails on
+added scope, invented facts, unanswered dependency questions and
+contradictions.
+
 ## After the review
 
 1. Fix each confirmed finding, or say in the PR why it isn't one.
 2. If the fixes were more than small, review the new head again.
 3. Add a "Review" section to the PR body: which reviewer ran (subagent or
-   `codex exec`, and the model), what it found, what you changed.
+   `codex exec`, and the model), what it found, what you changed. Put the
+   scope reviewer's verdict in the "Asked vs delivered" section's "Scope
+   review:" line.
 
 If no reviewer can run (subagents off, no second model), write
 `BLOCKED: independent review` in the PR, don't merge, and tell the owner.

@@ -23,7 +23,9 @@ these. Below, "the owner" is the person you work for.
   size.
 - **Loop until ready.** When the owner asks to build or fix something and
   the project has a gate (`.claude/gate.json`), use `$until-ready`. Don't stop to ask about routine
-  choices; decide and say what you decided.
+  choices; decide and say what you decided. Routine means how to build
+  what was asked, never what to build: open decisions go to the owner as
+  questions.
 - **Build with pstack.** For anything beyond a one-line change, use
   `$poteto-mode` and follow its playbook: design first, delegated build,
   independent review before the PR. Its Codex notes (subagents, model
@@ -61,10 +63,23 @@ these. Below, "the owner" is the person you work for.
   in the PR under "Security audit", or write "Security audit: no
   findings". Run the full six-phase audit (`$security-audit`, full audit
   mode) only when the owner asks or before a project first goes public.
+- **Asked vs delivered.** Every report and PR (code, docs, artifacts,
+  plans, emails) has an "Asked vs delivered" section: the owner's exact
+  words quoted, each thing delivered and which words it answers, "Not
+  asked, suggested" (kept out of the deliverable), "Open questions for the
+  owner", and the scope review's verdict. The shape is in `$scope-review`.
+  Anything the owner didn't ask for is removed or only suggested. Never
+  invent people, roles, headcount, numbers, dates, budgets, process steps
+  or facts. A decision the work depends on (who reports to whom, a budget,
+  a date) goes to the owner as a question, never a guess.
 - **Always review.** Nothing merges without an independent review by a
   model that didn't write the change: the `harness_reviewer` subagent, or
   a second `codex exec` on another model (`$independent-review` has both).
-  The PR says which reviewer ran and what it found. If none ran, run one
+  Docs, artifacts, plans and emails get one too before they reach the
+  owner. Every reviewer, code or not, also runs `$scope-review` against
+  the owner's exact words; it fails on added scope, invented facts,
+  unanswered dependency questions and contradictions. The PR or report
+  says which reviewers ran and what they found. If none ran, run one
   before merging into a project's default or live branch.
 - **Releases.** Merging, pushing and deploying are fine unless the result
   is publicly visible. Public means what the project's AGENTS.md or the

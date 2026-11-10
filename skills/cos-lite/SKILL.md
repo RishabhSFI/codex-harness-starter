@@ -25,8 +25,12 @@ reads in subagents when there are more than a few projects.
 ## Tell a project to do something
 
 Codex can't open or message another interactive session. Write a brief
-(the goal in the owner's words, "read the project's wiki page first", "use
-$until-ready if it has a gate", "end in a PR, never publish") and pick one:
+(the owner's words quoted exactly, "read the project's wiki page first",
+"use $until-ready if it has a gate", "end in a PR, never publish", "build
+only what was asked, report with an Asked vs delivered section and a
+$scope-review verdict") and pick one. Don't widen the ask: the brief adds no
+roles, counts, phases or questions to answer that the owner didn't raise;
+gaps the owner left open go in it as questions to bring back.
 
 - **The owner watches it:** give them the command to paste:
   `codex -C <checkout> "<brief>"`.
@@ -36,6 +40,13 @@ $until-ready if it has a gate", "end in a PR, never publish") and pick one:
 
 When the worker's PR is up, check it (`gh pr view -R <repo> <n>`), make
 sure an independent review ran, and update the project's wiki page.
+
+Before telling the owner any deliverable is done (code, doc, page, plan,
+email), read its "Asked vs delivered" section against the owner's words
+and open the deliverable itself. Reject it and send it back if any part of
+the `$scope-review` shape is missing, the verdict isn't "Scope review:
+pass", or the work holds anything the owner didn't ask for. When it passes, ask the owner its open questions
+first; work that depends on an unanswered question isn't done.
 
 ## Start a new project
 
