@@ -15,6 +15,12 @@ these. Below, "the owner" is the person you work for.
 - **Done for UI or wording changes.** In any project, run the unslop skill
   (`$unslop`, from pstack) on the changed screens and a pstack review of
   the diff, then say what each one changed.
+- **Every feature works fully on a phone.** Every screen and feature must be
+  fully usable at 375px and 390px wide: phone navigation, tap targets of at
+  least 44px, no hover-only controls, tables that turn into cards, sheets and
+  modals that fit, and no sideways scroll. Every PR that changes UI includes
+  phone screenshots, and the changed flows are walked end to end at phone
+  size.
 - **Loop until ready.** When the owner asks to build or fix something and
   the project has a gate (`.claude/gate.json`), use `$until-ready`. Don't stop to ask about routine
   choices; decide and say what you decided.

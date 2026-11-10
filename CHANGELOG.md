@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-10, harness 2df695a
+
+- Every feature works fully on a phone: standing rule for all projects (#17)
+- cos: hub handoff latest 11-09
+- wiki: owner mobile-first rule
+- cos: hub handoff late 11-09
+- and 4 internal changes
+
 ## 2026-11-09, harness 56ac334
 
 - cos: hub handoff night 11-09
